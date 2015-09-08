@@ -1,0 +1,35 @@
+﻿<div ng-controller="CommandListController as ctrl">
+    <fieldset>
+        <legend>List of commands</legend>
+    </fieldset>
+    <table class="table table-responsive table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Client name</th>
+                <th>Client address</th>
+                <th>Command text</th>
+                <th>Parameters</th>
+                <th>#</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="x in ctrl.commands">
+                <td>{{x.commandId}}</td>
+                <td>{{x.clientName}}</td>
+                <td>{{x.clientAddress}}</td>
+                <td>{{x.commandText}}</td>
+                <td>{{x.commandParameters}}</td>
+                <td>
+                    <a class="btn btn-link" ng-click="ctrl.editCommand($index)">Edit</a>
+                    <a class="btn btn-link" ng-click="ctrl.removeCommand($index)">Remove</a>
+                    <a class="btn btn-link" ng-click="ctrl.runCommand($index)">Run</a>
+                    <a class="btn btn-link" ng-click="ctrl.schedule($index)">Schedule</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <a class="btn btn-default" ng-click="ctrl.addCommand()">Add new</a>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+﻿@import "variables.less";
+
+
+.menu, .menu-items{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu{
+    header > a, header > span, a, span {
+        display: block;
+        white-space: nowrap;
+    }
+
+    a > img, a > span{
+        display: inline-block;
+    }
+
+    img {
+        width: @menu-image-width;
+        height: @menu-image-height;
+        vertical-align: bottom;
+        margin-right: @menu-image-margin;
+    }
+
+    li {
+        margin: @menu-item-margin-vertical @menu-item-margin-horizontal;
+    }
+
+    > li:first-child{
+        margin-top: 0;
+    }
+}

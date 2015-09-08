@@ -1,0 +1,27 @@
+﻿@using System.Web.Mvc.Html
+@model dynamic
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf8">
+        <meta name="viewport" content="width=device-width" />
+        <title>Scheduler</title>
+        
+        <link type="text/css" rel="stylesheet" href="~/Styles/template.css" />
+
+        <script type="text/javascript" src="~/Scripts/angular.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/angular-resource.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/angular-route.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/i18n/angular-locale_ru-ru.js"></script>
+        <script type="text/javascript" src="~/Scripts/angular-ui/ui-bootstrap.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/scheduler.js"></script>
+    </head>
+    <body ng-app="scheduler">
+        <div class="sidebar">
+            @Html.Partial("Menu", (object)Model.Menu)
+        </div>
+        <div ng-view class="content">
+           
+        </div>
+    </body>
+</html>

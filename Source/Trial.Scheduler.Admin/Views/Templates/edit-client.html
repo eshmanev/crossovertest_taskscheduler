@@ -1,0 +1,21 @@
+﻿<div>
+    <div class="modal-header">
+        <h3 class="modal-title">{{title}}</h3>
+    </div>
+    <div class="modal-body">
+        <div class="form-group" ng-class="{ 'has-error': errors.name }">
+            <label class="sr-only" for="clientName">Client name</label>
+            <input class="form-control" type="text" name="clientName" ng-model="client.name" placeholder="Enter client's name here" />
+            <span class="help-block" ng-bind="errors.name"></span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': errors.address }">
+            <label class="sr-only" for="clientAddress">Client address</label>
+            <input class="form-control" type="text" name="clientAddress" ng-model="client.address" placeholder="Enter client's IP address" />
+            <span class="help-block" ng-bind="errors.address"></span>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-default" ng-click="submit()">Submit</button>
+        <button class="btn btn-default" ng-click="close()">Close</button>
+    </div>
+</div>

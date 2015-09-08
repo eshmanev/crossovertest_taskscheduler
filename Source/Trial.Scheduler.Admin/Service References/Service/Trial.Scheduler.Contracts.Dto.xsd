@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Trial.Scheduler.Contracts.Dto" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Trial.Scheduler.Contracts.Dto" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ScheduleCommandRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ExecuteCommandRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="firstDateTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="trigger" type="tns:Trigger" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ScheduleCommandRequest" nillable="true" type="tns:ScheduleCommandRequest" />
+  <xs:complexType name="ExecuteCommandRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="clientName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="commandParameters" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="commandText" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ExecuteCommandRequest" nillable="true" type="tns:ExecuteCommandRequest" />
+  <xs:simpleType name="Trigger">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Single" />
+      <xs:enumeration value="Daily" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Trigger" nillable="true" type="tns:Trigger" />
+  <xs:complexType name="SchedulerErrorDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SchedulerErrorDto" nillable="true" type="tns:SchedulerErrorDto" />
+  <xs:complexType name="ExecuteCommandResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="commandOutput" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ExecuteCommandResponse" nillable="true" type="tns:ExecuteCommandResponse" />
+</xs:schema>

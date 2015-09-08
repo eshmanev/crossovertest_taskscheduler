@@ -1,0 +1,43 @@
+﻿@model IEnumerable<NavigationGroup>
+@using System.Linq
+@using Trial.Scheduler.Admin.Navigation
+
+<script type="text/javascript">
+    window.app.config(function ($routeProvider) {
+        $routeProvider
+            @foreach (var link in Model.SelectMany(x => x.Links).Where(x => !string.IsNullOrWhiteSpace(x.Url)))
+            {
+                <text>.when('/@link.Url', { templateUrl: '@link.TemplateUrl' })</text>
+            }
+            ;
+    });
+</script>
+
+<ul class="menu">
+    @foreach (var group in Model.OrderBy(x => x.Position))
+    {
+        <li>
+            <header>
+                @if (!string.IsNullOrWhiteSpace(group.Url))
+                {
+                    <a class="menu-group-name" href="#@group.Url"><span>@group.DisplayName</span></a>
+                }
+                else
+                {
+                    <span class="menu-group-name">@group.DisplayName</span>
+                }
+            </header>
+            <ul class="menu-items">
+                @foreach (var link in group.Links)
+                {
+                    <li>
+                        <a href="#@Url.Content(link.Url)">
+                            @*<img src="@Url.Content(link.ImageUrl)" />*@
+                            <span>@link.DisplayName</span>
+                        </a>
+                    </li>
+                }
+            </ul>
+        </li>
+    }
+</ul>

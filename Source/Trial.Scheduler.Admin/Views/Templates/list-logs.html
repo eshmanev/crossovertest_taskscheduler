@@ -1,0 +1,29 @@
+﻿<div ng-controller="LogListController as ctrl">
+    <fieldset>
+        <legend>List of client logs</legend>
+    </fieldset>
+    <table class="table table-responsive table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Client name</th>
+                <th>Client address</th>
+                <th>Command [parameters]</th>
+                <th>Output</th>
+                <th>#</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="x in ctrl.clients">
+                <td>{{x.logId}}</td>
+                <td>{{x.clientName}}</td>
+                <td>{{x.clientAddress}}</td>
+                <td>{{x.command}}</td>
+                <td>{{x.output}}</td>
+                <td>
+                    <a class="btn btn-link" ng-click="ctrl.removeLog($index)">Remove</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

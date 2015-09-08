@@ -1,0 +1,29 @@
+﻿<div ng-controller="ClientListController as ctrl">
+    <fieldset>
+        <legend>List of clients</legend>
+    </fieldset>
+    <table class="table table-responsive table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>#</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="x in ctrl.clients">
+                <td>{{x.clientId}}</td>
+                <td>{{x.name}}</td>
+                <td>{{x.address}}</td>
+                <td>
+                    <a class="btn btn-link" ng-click="ctrl.editClient($index)">Edit</a>
+                    <a class="btn btn-link" ng-click="ctrl.removeClient($index)">Remove</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <a class="btn btn-default" ng-click="ctrl.addClient()">Add new</a>
+    </div>
+</div>
